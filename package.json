@@ -1,6 +1,7 @@
 {
   "name": "todolist",
   "version": "0.1.0",
+  "homepage": "https://bluerat1/appdevpit/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
