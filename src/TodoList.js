@@ -12,16 +12,18 @@ export default function TodoList() {
   const [filter, setFilter] = useState("All");
   const [darkMode, setDarkMode] = useState(localStorage.getItem("theme") === "dark");
 
-  fetch('https://your-app.onrender.com/api/data/', {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-        // Add authentication tokens here if needed
-    },
-})
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+  useEffect(() => {
+  const fetchTasks = async () => {
+    try {
+      const response = await axios.get(API_URL);  // Get tasks from the API
+      setTasks(response.data);  // Set tasks to the state
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    }
+  };
+
+  fetchTasks();
+}, []);
 
 
   useEffect(() => {
