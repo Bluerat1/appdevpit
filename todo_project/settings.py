@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0zf6yi1rhv&&kw-slcol^630gn@he^uvl=nd*=cjg=zp44)$a9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['appdevpit.onrender.com/api/todos/','https://bluerat1.github.io']
+ALLOWED_HOSTS = ['appdevpit.onrender.com/api/todos/']
 
 CORS_ALLOW_METHODS = [
     "GET",
