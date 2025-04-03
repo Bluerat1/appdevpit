@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0zf6yi1rhv&&kw-slcol^630gn@he^uvl=nd*=cjg=zp44)$a9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = FALSE
+DEBUG = False
 
 ALLOWED_HOSTS = ['appdevpit.onrender.com','https://bluerat1.github.io']
 
