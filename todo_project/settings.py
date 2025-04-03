@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0zf6yi1rhv&&kw-slcol^630gn@he^uvl=nd*=cjg=zp44)$a9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['appdevpit.onrender.com','https://bluerat1.github.io']
+ALLOWED_HOSTS = ['appdevpit.onrender.com','https://bluerat1.github.io', 'localhost']
 
 CORS_ALLOW_METHODS = [
     "GET",
@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'dj_database_url',
     'todo_app',
 ]
 
@@ -145,6 +144,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  
-    "https://bluerat1.github.io",  
+    "https://bluerat1.github.io",
+     "http://localhost:8000",   
 ]
 
+
+# Allow credentials (e.g., cookies, authorization headers)
+CORS_ALLOW_CREDENTIALS = True
+
+# Allow all headers (simplify for development)
+CORS_ALLOW_ALL_HEADERS = True  # Or specify explicitly as you did
