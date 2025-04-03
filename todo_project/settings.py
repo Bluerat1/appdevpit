@@ -10,16 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import dj_database_url
-import os
 from pathlib import Path
 
-
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,11 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-0zf6yi1rhv&&kw-slcol^630gn@he^uvl=nd*=cjg=zp44)$a9'
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['appdevpit.onrender.com', 'bluerat1.github.io']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -48,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'dj_database_url',
     'todo_app',
 ]
 
@@ -93,8 +85,8 @@ DATABASES = {
     }
 }
 
-DATABASES["default"] = dj_database_url.parse("postgresql://todolist_i030_user:Jmf0pAEv7fyfLQmJUmRhIWXtmDws5MJi@dpg-cvn7nnemcj7s73e71ov0-a.oregon-postgres.render.com/todolist_i030")
 
+DATABASES["default"] = dj_database_url.parse("postgresql://todolist_i030_user:Jmf0pAEv7fyfLQmJUmRhIWXtmDws5MJi@dpg-cvn7nnemcj7s73e71ov0-a.oregon-postgres.render.com/todolist_i030")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -131,11 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = ["https://bluerat1.github.io"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
