@@ -27,13 +27,17 @@ export default function TodoList() {
         setTasks(response.data);
         setError("");
       } catch (error) {
-        setError("Failed to load tasks. Please refresh the page.");
+        if (error.code === "ERR_NETWORK") {
+          setError("Cannot connect to the server. Please check your internet connection or try again later.");
+        } else {
+          setError("Failed to load tasks. Please refresh the page.");
+        }
         console.error("Error fetching tasks:", error);
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchTasks();
   }, []);
 
