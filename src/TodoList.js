@@ -3,7 +3,7 @@ import axios from "axios";
 
 const baseURL = process.env.REACT_APP_API_URL || "https://appdevpit.onrender.com/api/todos/";
 const axiosInstance = axios.create({
-  baseURL,
+  baseURL: "https://appdevpit.onrender.com/api/todos/",
   headers: {
     "Content-Type": "application/json",
   },
@@ -19,23 +19,23 @@ export default function TodoList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        setLoading(true);
-        const response = await axiosInstance.get("/");
-        setTasks(response.data);
-        setError("");
-      } catch (error) {
-        console.log("Full error object", error);
-        console.error("Error fetching tasks:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-  
-    fetchTasks();
-  }, []);
+useEffect(() => {
+  const fetchTasks = async () => {
+    try {
+      setLoading(true);
+      const response = await axiosInstance.get("/"); // Line 18-ish
+      setTasks(response.data);
+      setError("");
+    } catch (error) {
+      setError("Failed to load tasks. Please refresh the page.");
+      console.error("Error fetching tasks:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchTasks();
+}, []);
 
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
