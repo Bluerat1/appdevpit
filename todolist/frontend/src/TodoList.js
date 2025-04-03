@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-const API_URL = "http://appdev.onrender.com/api/todos/";
+const API_URL = "http://appdevpit.onrender.com/api/todos/";
 
 export default function TodoList() {
   const [tasks, setTasks] = useState([]);
